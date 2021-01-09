@@ -1,8 +1,13 @@
 package com.blz.employeepayrollapp.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class EmployeePayRollDTO {
 
@@ -12,13 +17,15 @@ public class EmployeePayRollDTO {
 	@Min(value = 5000, message="Min Employee Wage should be more than 500 ")
 	public long salary;
 	
-	public EmployeePayRollDTO(String name, long salary) {
-		super();
-		this.name = name;
-		this.salary = salary;
-	}
-	@Override
-	public String toString() {
-		return "EmployeePayRollDTO [empName=" + name + ", salary=" + salary + "]";
-	}
+	public String gender;
+
+	@JsonFormat(pattern = "dd MMM yyyy")
+	public LocalDate startDate;
+
+	public String note;
+
+	public String profilePic;
+
+	public List<String> departments;
+
 }
