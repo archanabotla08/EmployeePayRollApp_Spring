@@ -3,14 +3,19 @@ package com.blz.employeepayrollapp.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.blz.employeepayrollapp.dto.EmployeePayRollDTO;
 import com.blz.employeepayrollapp.model.EmployeePayRollData;
+import com.blz.employeepayrollapp.repository.EmployeePayRollRepository;
 
 @Service
 public class EmployeePayRollService implements IEmployeePayRollService {
 
+	@Autowired
+	private EmployeePayRollRepository employeePayRollRepository;
+	
 	private List<EmployeePayRollData> employeePayrollList = new ArrayList<>();
 	
 	@Override
@@ -28,9 +33,9 @@ public class EmployeePayRollService implements IEmployeePayRollService {
 	@Override
 	public EmployeePayRollData createEmployeePayRollData(EmployeePayRollDTO employeePayRollDTO) {
 		EmployeePayRollData empDataList = null;
-		empDataList = new EmployeePayRollData(employeePayrollList.size() + 1,employeePayRollDTO);
+		empDataList = new EmployeePayRollData(employeePayRollDTO);
 		employeePayrollList.add(empDataList);
-		return empDataList;
+		return employeePayRollRepository.save(empDataList);	
 	}
 
 	@Override
