@@ -14,7 +14,7 @@ public class EmployeePayRollAppSpringApplication {
 		    org.slf4j.LoggerFactory.getLogger(EmployeePayRollAppSpringApplication.class);
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(EmployeePayRollAppSpringApplication.class, args);
-		log.info("Address Book Started In App");
+		log.info("Employee PayRoll Started In App");
 	}
 
 }
