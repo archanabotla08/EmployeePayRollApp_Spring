@@ -2,13 +2,16 @@ package com.blz.employeepayrollapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class EmployeePayRollAppSpringApplication {
 
+	private static final org.slf4j.Logger log = 
+		    org.slf4j.LoggerFactory.getLogger(EmployeePayRollAppSpringApplication.class);
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Pay Roll App");
-		SpringApplication.run(EmployeePayRollAppSpringApplication.class, args);
+		ApplicationContext context = SpringApplication.run(EmployeePayRollAppSpringApplication.class, args);
+		log.info("Address Book Started In App");
 	}
 
 }
