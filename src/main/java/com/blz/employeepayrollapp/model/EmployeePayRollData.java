@@ -28,17 +28,23 @@ public class EmployeePayRollData {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "employee_id")
 	private int employeeId;
+	
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "salary")
 	private long salary;
+	
 	@Column(name = "gender")
 	public String gender;
+	
 	@Column(name = "startDate")
-	@JsonFormat(pattern = "dd MMM yyyy")
+	@JsonFormat(pattern = "dd MM yyyy")
 	public LocalDate startDate;
+	
 	@Column(name = "note")
 	public String note;
+	
 	@Column(name = "profilePicURL")
 	public String profilePic;
 
@@ -47,6 +53,10 @@ public class EmployeePayRollData {
 	@Column(name = "department")
 	public List<String> departments;
 
+	public EmployeePayRollData() {
+		super();
+
+	}
 	public void updateEmployeePayrollData(EmployeePayRollDTO employeePayrollDTO) {
 		this.name = employeePayrollDTO.name;
 		this.salary = employeePayrollDTO.salary;
